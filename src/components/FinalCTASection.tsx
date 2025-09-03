@@ -11,7 +11,7 @@ import {
   ArrowRight
 } from "lucide-react";
 import heroImage from "@/assets/hero-luxury-real-estate.jpg";
-import LeadCaptureForm from "./LeadCaptureForm";
+import MultiStepLeadForm from "./MultiStepLeadForm";
 
 const FinalCTASection = () => {
   const includes = [
@@ -108,7 +108,7 @@ const FinalCTASection = () => {
 
             {/* Right Side - Lead Capture Form */}
             <div>
-              <LeadCaptureForm 
+              <MultiStepLeadForm 
                 variant="hero"
                 title="Inscreva-se Agora!"
                 subtitle="Preencha os dados abaixo para garantir sua vaga com desconto de 84% e todos os bônus exclusivos."

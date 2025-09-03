@@ -4,11 +4,13 @@ import heroImage from "@/assets/hero-luxury-real-estate.jpg";
 
 const HeroSection = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden gradient-hero">
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden gradient-hero pt-16 lg:pt-20">
       {/* Background Image with Overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${heroImage})` }}
+        role="img"
+        aria-label="Luxuoso imóvel de alto padrão"
       >
         <div className="absolute inset-0 bg-navy/80"></div>
       </div>
@@ -47,8 +49,9 @@ const HeroSection = () => {
               variant="hero" 
               size="lg"
               className="w-full sm:w-auto sm:min-w-64 h-12 md:h-14 text-base md:text-lg"
+              aria-label="Inscrever-se no curso de tráfego imobiliário"
             >
-              <Play className="w-5 h-5" />
+              <Play className="w-5 h-5" aria-hidden="true" />
               Inscreva-se Agora e Comece a Vender Mais!
             </Button>
             
@@ -56,6 +59,7 @@ const HeroSection = () => {
               variant="outline" 
               size="lg"
               className="w-full sm:w-auto sm:min-w-64 h-12 md:h-14 text-base md:text-lg border-white/30 text-white hover:bg-white/10"
+              aria-label="Assistir demonstração gratuita do curso"
             >
               Ver Demonstração Gratuita
             </Button>
@@ -63,24 +67,8 @@ const HeroSection = () => {
           
           {/* Urgency Text */}
           <p className="text-gold font-semibold text-sm md:text-base lg:text-lg mb-8 md:mb-12 animate-pulse px-4">
-            ⚡ Vagas limitadas! Garante sua vaga no curso que está revolucionando o mercado imobiliário.
+            ⚡ Vagas limitadas! Garanta sua vaga no curso que está revolucionando o mercado imobiliário.
           </p>
-          
-          {/* Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-3xl mx-auto px-4">
-            <div className="text-center">
-              <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-gold mb-1 md:mb-2">500+</div>
-              <div className="text-gray-300 text-sm md:text-base">Corretores Treinados</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-gold mb-1 md:mb-2">R$ 50M+</div>
-              <div className="text-gray-300 text-sm md:text-base">Em Vendas Geradas</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-gold mb-1 md:mb-2">98%</div>
-              <div className="text-gray-300 text-sm md:text-base">Taxa de Satisfação</div>
-            </div>
-          </div>
         </div>
         
         {/* Scroll Indicator */}

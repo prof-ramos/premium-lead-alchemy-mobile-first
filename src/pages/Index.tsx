@@ -1,5 +1,8 @@
+import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
 import BenefitsSection from "@/components/BenefitsSection";
+import ImpactMetricsSection from "@/components/ImpactMetricsSection";
+import InstructorSection from "@/components/InstructorSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import CourseOverviewSection from "@/components/CourseOverviewSection";
 import SensorySection from "@/components/SensorySection";
@@ -15,6 +18,11 @@ import TrackingPixels from "@/components/TrackingPixels";
 const Index = () => {
   return (
     <main className="min-h-screen">
+      {/* Skip to content link for accessibility */}
+      <a href="#main-content" className="skip-to-content">
+        Pular para o conteúdo principal
+      </a>
+      
       {/* Tracking Pixels */}
       <TrackingPixels />
       
@@ -24,16 +32,47 @@ const Index = () => {
       {/* WhatsApp Floating Button */}
       <WhatsAppButton variant="fixed" />
       
-      <HeroSection />
-      <BenefitsSection />
-      <TestimonialsSection />
-      <CourseOverviewSection />
-      <SensorySection />
-      <BonusSection />
-      <BrandStorySection />
-      <UrgencySection />
-      <FinalCTASection />
-      <FAQSection />
+      {/* Fixed Navigation */}
+      <Navigation />
+      
+      <div id="hero">
+        <HeroSection />
+      </div>
+
+      <div id="main-content">
+        <div id="benefits">
+          <BenefitsSection />
+        </div>
+        
+        <ImpactMetricsSection />
+        
+        <InstructorSection />
+        
+        <div id="testimonials">
+          <TestimonialsSection />
+        </div>
+        
+        <div id="course-overview">
+          <CourseOverviewSection />
+        </div>
+        
+        <SensorySection />
+        
+        <div id="bonus">
+          <BonusSection />
+        </div>
+        
+        <BrandStorySection />
+        <UrgencySection />
+        
+        <div id="inscription">
+          <FinalCTASection />
+        </div>
+        
+        <div id="faq">
+          <FAQSection />
+        </div>
+      </div>
       
       {/* Footer */}
       <footer className="bg-navy py-8 md:py-12">
