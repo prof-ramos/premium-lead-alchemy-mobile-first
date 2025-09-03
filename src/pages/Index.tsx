@@ -1,13 +1,50 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import HeroSection from "@/components/HeroSection";
+import BenefitsSection from "@/components/BenefitsSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
+import CourseOverviewSection from "@/components/CourseOverviewSection";
+import SensorySection from "@/components/SensorySection";
+import BonusSection from "@/components/BonusSection";
+import BrandStorySection from "@/components/BrandStorySection";
+import UrgencySection from "@/components/UrgencySection";
+import FinalCTASection from "@/components/FinalCTASection";
+import FAQSection from "@/components/FAQSection";
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
-    </div>
+    <main className="min-h-screen">
+      <HeroSection />
+      <BenefitsSection />
+      <TestimonialsSection />
+      <CourseOverviewSection />
+      <SensorySection />
+      <BonusSection />
+      <BrandStorySection />
+      <UrgencySection />
+      <FinalCTASection />
+      <FAQSection />
+      
+      {/* Footer */}
+      <footer className="bg-navy py-12">
+        <div className="container mx-auto px-4 text-center">
+          <div className="max-w-2xl mx-auto">
+            <h3 className="text-2xl font-bold text-white mb-4">
+              Tráfego Imobiliário de <span className="text-gold">Alta Performance</span>
+            </h3>
+            <p className="text-gray-300 mb-6 leading-relaxed">
+              Transformando corretores em autoridades digitais que atraem naturalmente 
+              os melhores clientes do mercado de alto padrão.
+            </p>
+            <div className="flex justify-center items-center gap-4 text-gray-400 text-sm">
+              <span>© 2024 Tráfego Imobiliário</span>
+              <span>•</span>
+              <a href="#" className="hover:text-gold transition-colors">Termos de Uso</a>
+              <span>•</span>
+              <a href="#" className="hover:text-gold transition-colors">Privacidade</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </main>
   );
 };
 

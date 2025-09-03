@@ -18,11 +18,17 @@ const buttonVariants = cva(
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
+        /* Luxury Real Estate Variants */
+        hero: "bg-gold text-navy font-bold shadow-gold hover:bg-gold/90 hover:shadow-luxury transition-luxury transform hover:scale-105",
+        cta: "bg-navy text-primary-foreground hover:bg-navy-light shadow-luxury transition-luxury",
+        gold: "bg-gold text-navy font-semibold hover:bg-gold-dark shadow-gold transition-luxury",
+        luxury: "gradient-primary text-primary-foreground hover:gradient-hero shadow-luxury transition-luxury",
       },
       size: {
         default: "h-10 px-4 py-2",
         sm: "h-9 rounded-md px-3",
         lg: "h-11 rounded-md px-8",
+        xl: "h-14 rounded-lg px-12 text-lg font-semibold",
         icon: "h-10 w-10",
       },
     },
