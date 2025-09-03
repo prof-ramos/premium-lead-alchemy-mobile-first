@@ -1,0 +1,171 @@
+# yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
+# CodeRabbit Configuration for Premium Lead Alchemy
+# AI-powered code review and analysis configuration
+
+# Reviews configuration
+reviews:
+  # Enable review generation
+  enabled: true
+  language: "pt-BR"
+  
+  # Review triggers
+  triggers:
+    - pull_request
+    - push
+  
+  # Review settings
+  request_changes_workflow: true
+  high_level_summary: true
+  poem: true
+  review_status: true
+  collapse_walkthrough: false
+  path_instructions: []
+  
+  # Auto-review settings
+  auto_review:
+    enabled: true
+    drafts: false
+    base_branches:
+      - main
+      - develop
+      - staging
+    
+  # Review scope
+  ignore_title_keywords:
+    - "wip"
+    - "do not review"
+    - "skip review"
+  
+  # Code review depth
+  knowledge_base: true
+  enable_free_tier: true
+
+# Path-based rules
+path_filters:
+  # Include patterns
+  include:
+    - "src/**/*"
+    - "components/**/*"
+    - "pages/**/*"
+    - "lib/**/*"
+    - "hooks/**/*"
+    - "*.ts"
+    - "*.tsx"
+    - "*.js"
+    - "*.jsx"
+    - "*.css"
+    - "*.scss"
+    - "*.json"
+    - "*.md"
+    - "package.json"
+    - "tsconfig.json"
+    - "tailwind.config.ts"
+    - "vite.config.ts"
+    
+  # Exclude patterns
+  exclude:
+    - "node_modules/**"
+    - "dist/**"
+    - "build/**"
+    - ".next/**"
+    - "coverage/**"
+    - "*.min.js"
+    - "*.bundle.js"
+    - "public/assets/**"
+    - ".git/**"
+    - "*.lock"
+
+# Review format and style
+format:
+  # Comment style
+  comment_style: "conversational"
+  code_suggestions: true
+  inline_comments: true
+  summary_comments: true
+  
+  # Markdown formatting
+  use_markdown: true
+  code_blocks: true
+  syntax_highlighting: true
+  
+  # Review organization
+  group_by_file: true
+  show_line_numbers: true
+  context_lines: 3
+
+# Integration settings
+integrations:
+  github:
+    # GitHub specific settings
+    auto_approve_dependabot: false
+    auto_approve_renovate: false
+    dismiss_stale_reviews: true
+    
+  # CI/CD integration
+  ci_cd:
+    block_merge_on_review_required: false
+    require_review_approval: false
+
+# Custom prompts and instructions
+prompts:
+  system_message: |
+    You are reviewing a premium real estate lead capture landing page built with React, TypeScript, Next.js, and Tailwind CSS.
+    Focus on:
+    - Mobile-first responsive design
+    - Performance optimization for conversion
+    - Accessibility for all users
+    - TypeScript type safety
+    - React best practices
+    - SEO optimization for lead generation
+    - Security best practices
+    - Code maintainability and scalability
+    
+  review_instructions: |
+    When reviewing code, please consider:
+    1. Does this code follow mobile-first design principles?
+    2. Is the code optimized for lead conversion?
+    3. Are there any accessibility issues?
+    4. Is the TypeScript implementation type-safe?
+    5. Does it follow React and Next.js best practices?
+    6. Are there performance implications?
+    7. Is the code maintainable and well-documented?
+    8. Does it follow the established design system?
+
+# Advanced settings
+advanced:
+  # Analysis depth
+  deep_analysis: true
+  contextual_analysis: true
+  cross_file_analysis: true
+  
+  # Learning and adaptation
+  learn_from_feedback: true
+  adapt_to_codebase: true
+  
+  # Experimental features
+  experimental_features: true
+  ai_suggestions: true
+  automated_fixes: false
+
+# Notification settings
+notifications:
+  review_ready: true
+  review_updated: true
+  mention_maintainers: false
+  
+# Rate limiting and quotas
+limits:
+  max_files_per_review: 50
+  max_lines_per_file: 1000
+  review_timeout_minutes: 30
+
+# Environment specific settings
+environments:
+  development:
+    strict_mode: false
+    allow_console_logs: true
+    
+  production:
+    strict_mode: true
+    allow_console_logs: false
+    require_optimization: true

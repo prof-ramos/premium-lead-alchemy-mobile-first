@@ -13,24 +13,60 @@ const LeadMagnetPopup = () => {
   const { toast } = useToast();
 
   useEffect(() => {
-    // Show popup after 30 seconds or when user tries to exit
-    const timer = setTimeout(() => {
-      if (!localStorage.getItem('leadMagnetShown')) {
-        setIsOpen(true);
-      }
-    }, 30000);
+    let timeoutId: NodeJS.Timeout;
+    let hasTriggered = false;
 
-    const handleMouseLeave = (e: MouseEvent) => {
-      if (e.clientY <= 0 && !localStorage.getItem('leadMagnetShown')) {
-        setIsOpen(true);
+    // Check if popup has already been shown in this session
+    const wasShown = localStorage.getItem('leadMagnetShown') || sessionStorage.getItem('popupTriggered');
+    if (wasShown) return;
+
+    // Show popup after 45 seconds of page activity
+    const showAfterDelay = () => {
+      if (!hasTriggered) {
+        timeoutId = setTimeout(() => {
+          if (!hasTriggered && !localStorage.getItem('leadMagnetShown')) {
+            setIsOpen(true);
+            hasTriggered = true;
+            sessionStorage.setItem('popupTriggered', 'true');
+          }
+        }, 45000);
       }
     };
 
+    // Exit intent detection
+    const handleMouseLeave = (e: MouseEvent) => {
+      // Only trigger on actual exit intent (cursor leaving from top of page)
+      if (!hasTriggered && e.clientY <= 0 && e.pageY <= 10 && !localStorage.getItem('leadMagnetShown')) {
+        clearTimeout(timeoutId);
+        setIsOpen(true);
+        hasTriggered = true;
+        sessionStorage.setItem('popupTriggered', 'true');
+      }
+    };
+
+    // Track user activity to reset timer
+    const resetTimer = () => {
+      clearTimeout(timeoutId);
+      if (!hasTriggered) {
+        showAfterDelay();
+      }
+    };
+
+    // Start initial timer
+    showAfterDelay();
+
+    // Add event listeners for exit intent and user activity
     document.addEventListener('mouseleave', handleMouseLeave);
+    document.addEventListener('scroll', resetTimer, { passive: true });
+    document.addEventListener('mousemove', resetTimer, { passive: true });
+    document.addEventListener('keydown', resetTimer);
 
     return () => {
-      clearTimeout(timer);
+      clearTimeout(timeoutId);
       document.removeEventListener('mouseleave', handleMouseLeave);
+      document.removeEventListener('scroll', resetTimer);
+      document.removeEventListener('mousemove', resetTimer);
+      document.removeEventListener('keydown', resetTimer);
     };
   }, []);
 
@@ -82,16 +118,25 @@ const LeadMagnetPopup = () => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-fade-in">
+    <div 
+      className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-fade-in"
+      onClick={(e) => {
+        // Allow closing by clicking outside the modal
+        if (e.target === e.currentTarget) {
+          handleClose();
+        }
+      }}
+    >
       <Card className="max-w-lg w-full p-8 shadow-luxury border-2 border-gold/30 relative animate-scale-in">
-        {/* Close Button */}
+        {/* Close Button - Always Visible and Prominent */}
         <Button
           variant="ghost"
           size="icon"
-          className="absolute top-4 right-4 hover:bg-gray-100"
+          className="absolute -top-3 -right-3 bg-white hover:bg-gray-100 rounded-full shadow-lg border-2 border-gold/20 w-10 h-10 z-10"
           onClick={handleClose}
+          aria-label="Fechar popup"
         >
-          <X className="w-5 h-5" />
+          <X className="w-5 h-5 text-gray-600" />
         </Button>
 
         {/* Content */}

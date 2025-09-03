@@ -25,11 +25,11 @@ const buttonVariants = cva(
         luxury: "gradient-primary text-primary-foreground hover:gradient-hero shadow-luxury transition-luxury",
       },
       size: {
-        default: "h-10 px-4 py-2",
-        sm: "h-9 rounded-md px-3",
-        lg: "h-11 rounded-md px-8",
-        xl: "h-14 rounded-lg px-12 text-lg font-semibold",
-        icon: "h-10 w-10",
+        default: "h-11 md:h-10 px-4 py-2",
+        sm: "h-10 md:h-9 rounded-md px-3",
+        lg: "h-12 md:h-11 rounded-md px-6 md:px-8",
+        xl: "h-14 md:h-16 rounded-lg px-8 md:px-12 text-base md:text-lg font-semibold",
+        icon: "h-11 w-11 md:h-10 md:w-10",
       },
     },
     defaultVariants: {
