@@ -1,5 +1,8 @@
+# yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
 # CodeRabbit Configuration for Premium Lead Alchemy
 # AI-powered code review and analysis configuration
+
+language: "pt-BR"
 
 # Reviews configuration
 reviews:
@@ -37,77 +40,6 @@ reviews:
   # Code review depth
   knowledge_base: true
   enable_free_tier: true
-
-# Language and framework specific settings
-language:
-  typescript:
-    # TypeScript specific analysis
-    enable_strict_checks: true
-    check_type_safety: true
-    analyze_react_patterns: true
-    
-  javascript:
-    # JavaScript analysis
-    enable_es6_plus: true
-    check_async_patterns: true
-    
-  css:
-    # CSS/SCSS analysis
-    check_responsive_design: true
-    validate_selectors: true
-    analyze_performance: true
-
-# Framework specific configurations
-frameworks:
-  react:
-    # React best practices
-    check_hooks_usage: true
-    validate_component_structure: true
-    analyze_performance_patterns: true
-    check_accessibility: true
-    
-  nextjs:
-    # Next.js specific checks
-    validate_routing: true
-    check_ssr_patterns: true
-    analyze_bundle_size: true
-    
-  tailwindcss:
-    # Tailwind CSS optimization
-    check_utility_usage: true
-    validate_responsive_design: true
-    analyze_custom_classes: true
-
-# Security analysis
-security:
-  enabled: true
-  check_vulnerabilities: true
-  scan_dependencies: true
-  validate_env_usage: true
-  check_data_exposure: true
-
-# Performance analysis
-performance:
-  enabled: true
-  bundle_analysis: true
-  code_splitting_suggestions: true
-  lazy_loading_checks: true
-  memory_usage_patterns: true
-
-# Accessibility checks
-accessibility:
-  enabled: true
-  wcag_compliance: true
-  semantic_html_checks: true
-  aria_validation: true
-  keyboard_navigation: true
-
-# Code quality settings
-quality:
-  complexity_analysis: true
-  duplication_detection: true
-  maintainability_index: true
-  technical_debt_assessment: true
 
 # Path-based rules
 path_filters:
