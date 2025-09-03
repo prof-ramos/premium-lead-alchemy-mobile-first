@@ -2,12 +2,11 @@
 # CodeRabbit Configuration for Premium Lead Alchemy
 # AI-powered code review and analysis configuration
 
-language: "pt-BR"
-
 # Reviews configuration
 reviews:
   # Enable review generation
   enabled: true
+  language: "pt-BR"
   
   # Review triggers
   triggers:
