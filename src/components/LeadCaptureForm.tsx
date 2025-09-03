@@ -79,41 +79,41 @@ const LeadCaptureForm = ({
   };
 
   const cardClass = variant === "popup" 
-    ? "p-8 max-w-md mx-auto shadow-luxury border-2 border-gold/30"
+    ? "p-4 md:p-6 lg:p-8 max-w-md mx-auto shadow-luxury border-2 border-gold/30"
     : variant === "footer"
-    ? "p-6 bg-white/10 backdrop-blur-sm border-white/20"
-    : "p-8 bg-white/95 backdrop-blur-sm shadow-luxury border-2 border-gold/30";
+    ? "p-4 md:p-6 bg-white/10 backdrop-blur-sm border-white/20"
+    : "p-4 md:p-6 lg:p-8 bg-white/95 backdrop-blur-sm shadow-luxury border-2 border-gold/30";
 
   return (
     <Card className={cardClass}>
       {showBonusOffer && (
-        <div className="bg-gold/10 rounded-lg p-4 mb-6 border border-gold/30">
+        <div className="bg-gold/10 rounded-lg p-3 md:p-4 mb-4 md:mb-6 border border-gold/30">
           <div className="flex items-center gap-2 mb-2">
             <Gift className="w-5 h-5 text-gold" />
             <span className="font-bold text-gold">BÔNUS LIMITADO</span>
           </div>
-          <p className="text-sm text-foreground">
+          <p className="text-xs md:text-sm text-foreground">
             Primeiros 100 inscritos ganham R$ 3.085 em materiais extras!
           </p>
         </div>
       )}
 
       {title && (
-        <h3 className="text-2xl md:text-3xl font-bold text-center mb-4 text-foreground">
+        <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-center mb-3 md:mb-4 text-foreground">
           {title}
         </h3>
       )}
 
       {subtitle && (
-        <p className="text-muted-foreground text-center mb-6 leading-relaxed">
+        <p className="text-sm md:text-base text-muted-foreground text-center mb-4 md:mb-6 leading-relaxed">
           {subtitle}
         </p>
       )}
 
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-3 md:space-y-4">
         <div>
-          <Label htmlFor="name" className="flex items-center gap-2 mb-2">
-            <User className="w-4 h-4" />
+          <Label htmlFor="name" className="flex items-center gap-2 mb-1 md:mb-2 text-sm md:text-base">
+            <User className="w-4 h-4 flex-shrink-0" />
             Nome Completo *
           </Label>
           <Input
@@ -123,13 +123,13 @@ const LeadCaptureForm = ({
             value={formData.name}
             onChange={(e) => handleInputChange("name", e.target.value)}
             required
-            className="border-border/50 focus:border-gold"
+            className="h-12 md:h-11 text-base border-border/50 focus:border-gold"
           />
         </div>
 
         <div>
-          <Label htmlFor="email" className="flex items-center gap-2 mb-2">
-            <Mail className="w-4 h-4" />
+          <Label htmlFor="email" className="flex items-center gap-2 mb-1 md:mb-2 text-sm md:text-base">
+            <Mail className="w-4 h-4 flex-shrink-0" />
             E-mail Profissional *
           </Label>
           <Input
@@ -139,13 +139,13 @@ const LeadCaptureForm = ({
             value={formData.email}
             onChange={(e) => handleInputChange("email", e.target.value)}
             required
-            className="border-border/50 focus:border-gold"
+            className="h-12 md:h-11 text-base border-border/50 focus:border-gold"
           />
         </div>
 
         <div>
-          <Label htmlFor="phone" className="flex items-center gap-2 mb-2">
-            <Phone className="w-4 h-4" />
+          <Label htmlFor="phone" className="flex items-center gap-2 mb-1 md:mb-2 text-sm md:text-base">
+            <Phone className="w-4 h-4 flex-shrink-0" />
             WhatsApp *
           </Label>
           <Input
@@ -155,13 +155,13 @@ const LeadCaptureForm = ({
             value={formData.phone}
             onChange={(e) => handleInputChange("phone", e.target.value)}
             required
-            className="border-border/50 focus:border-gold"
+            className="h-12 md:h-11 text-base border-border/50 focus:border-gold"
           />
         </div>
 
         <div>
-          <Label htmlFor="city" className="flex items-center gap-2 mb-2">
-            <MapPin className="w-4 h-4" />
+          <Label htmlFor="city" className="flex items-center gap-2 mb-1 md:mb-2 text-sm md:text-base">
+            <MapPin className="w-4 h-4 flex-shrink-0" />
             Cidade de Atuação
           </Label>
           <Input
@@ -170,7 +170,7 @@ const LeadCaptureForm = ({
             placeholder="São Paulo, SP"
             value={formData.city}
             onChange={(e) => handleInputChange("city", e.target.value)}
-            className="border-border/50 focus:border-gold"
+            className="h-12 md:h-11 text-base border-border/50 focus:border-gold"
           />
         </div>
 
@@ -178,7 +178,7 @@ const LeadCaptureForm = ({
           type="submit" 
           variant="hero" 
           size="lg" 
-          className="w-full shadow-luxury" 
+          className="w-full h-12 md:h-14 text-base md:text-lg shadow-luxury mt-6" 
           disabled={isSubmitting}
         >
           {isSubmitting ? (
@@ -194,12 +194,12 @@ const LeadCaptureForm = ({
           )}
         </Button>
 
-        <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground mt-4">
+        <div className="flex items-center justify-center gap-2 text-xs md:text-sm text-muted-foreground mt-3 md:mt-4">
           <Lock className="w-4 h-4" />
           <span>Dados 100% seguros e protegidos</span>
         </div>
 
-        <div className="text-xs text-muted-foreground text-center leading-relaxed">
+        <div className="text-xs text-muted-foreground text-center leading-relaxed px-2">
           Ao se inscrever, você concorda em receber comunicações sobre o curso. 
           Seus dados estão seguros conosco.
         </div>

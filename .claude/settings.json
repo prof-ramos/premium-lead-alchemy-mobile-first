@@ -1,0 +1,133 @@
+{
+  "project": {
+    "name": "Premium Lead Alchemy",
+    "description": "Premium real estate lead capture landing page built with React, TypeScript, Next.js, and Tailwind CSS",
+    "version": "1.0.0",
+    "type": "nextjs-react-landing-page"
+  },
+  "agents": {
+    "nextjs-fullstack-architect": {
+      "description": "Next.js full-stack development specialist",
+      "enabled": true,
+      "priority": "high"
+    },
+    "web3-integration-specialist": {
+      "description": "Web3 frontend applications and wallet integrations specialist", 
+      "enabled": true,
+      "priority": "medium"
+    },
+    "ui-ux-designer": {
+      "description": "User interface and experience design specialist",
+      "enabled": true,
+      "priority": "high"
+    },
+    "marketing-attribution-analyst": {
+      "description": "Marketing attribution analysis specialist",
+      "enabled": true,
+      "priority": "high"
+    },
+    "prompt-engineer": {
+      "description": "Expert prompt optimization for LLMs and AI systems",
+      "enabled": true,
+      "priority": "medium"
+    },
+    "search-specialist": {
+      "description": "Expert web researcher using advanced search techniques",
+      "enabled": true,
+      "priority": "medium"
+    },
+    "debugger": {
+      "description": "Code debugging and troubleshooting specialist",
+      "enabled": true,
+      "priority": "high"
+    }
+  },
+  "commands": {
+    "design-rest-api": {
+      "description": "Design REST API endpoints and documentation",
+      "enabled": true,
+      "priority": "low"
+    },
+    "debug-error": {
+      "description": "Debug and troubleshoot errors systematically", 
+      "enabled": true,
+      "priority": "high"
+    }
+  },
+  "env": {
+    "NODE_ENV": "development",
+    "REACT_APP_PROJECT_NAME": "Premium Lead Alchemy",
+    "TAILWIND_MODE": "jit"
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo \"[$(date)] Premium Lead Alchemy - Tool: $CLAUDE_TOOL_NAME\" >> .claude/project-log.txt"
+          }
+        ]
+      }
+    ]
+  },
+  "workflows": {
+    "mobile-first-development": {
+      "description": "Mobile-first development workflow",
+      "steps": [
+        "Design mobile layout first",
+        "Implement responsive breakpoints",
+        "Test on multiple devices",
+        "Optimize performance"
+      ]
+    },
+    "lead-capture-optimization": {
+      "description": "Lead capture conversion optimization",
+      "steps": [
+        "A/B test form layouts",
+        "Optimize CTA buttons",
+        "Implement tracking pixels",
+        "Analyze conversion metrics"
+      ]
+    }
+  },
+  "integrations": {
+    "coderabbit": {
+      "enabled": true,
+      "config": ".coderabbit.yaml"
+    },
+    "mcp": {
+      "enabled": true,
+      "config": ".mcp.json"
+    },
+    "tailwind": {
+      "enabled": true,
+      "config": "tailwind.config.ts"
+    },
+    "typescript": {
+      "enabled": true,
+      "config": "tsconfig.json"
+    }
+  },
+  "quality": {
+    "linting": {
+      "enabled": true,
+      "tools": ["eslint", "prettier"]
+    },
+    "typeChecking": {
+      "enabled": true,
+      "strict": true
+    },
+    "testing": {
+      "enabled": true,
+      "framework": "vitest"
+    }
+  },
+  "deployment": {
+    "platform": "vercel",
+    "branch": "main",
+    "buildCommand": "npm run build",
+    "outputDirectory": "dist"
+  }
+}
