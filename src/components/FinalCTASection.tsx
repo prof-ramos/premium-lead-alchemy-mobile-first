@@ -11,6 +11,7 @@ import {
   ArrowRight
 } from "lucide-react";
 import heroImage from "@/assets/hero-luxury-real-estate.jpg";
+import LeadCaptureForm from "./LeadCaptureForm";
 
 const FinalCTASection = () => {
   const includes = [
@@ -62,57 +63,60 @@ const FinalCTASection = () => {
             </p>
           </div>
 
-          {/* Offer Card */}
-          <Card className="bg-white/95 backdrop-blur-sm p-8 md:p-12 shadow-luxury border-2 border-gold/30 mb-12">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-              {/* Left Side - What's Included */}
-              <div>
-                <h3 className="text-2xl md:text-3xl font-bold text-navy mb-6">
-                  🎯 Tudo o que Você Recebe Hoje:
-                </h3>
-                <div className="space-y-3">
-                  {includes.map((item, index) => (
-                    <div key={index} className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-success flex-shrink-0 mt-0.5" />
-                      <span className="text-navy leading-relaxed">{item}</span>
-                    </div>
-                  ))}
-                </div>
+          {/* Offer Card with Form */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+            {/* Left Side - What's Included */}
+            <Card className="bg-white/95 backdrop-blur-sm p-8 shadow-luxury border-2 border-gold/30">
+              <h3 className="text-2xl md:text-3xl font-bold text-navy mb-6">
+                🎯 Tudo o que Você Recebe Hoje:
+              </h3>
+              <div className="space-y-3">
+                {includes.map((item, index) => (
+                  <div key={index} className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-success flex-shrink-0 mt-0.5" />
+                    <span className="text-navy leading-relaxed">{item}</span>
+                  </div>
+                ))}
               </div>
 
-              {/* Right Side - Pricing */}
-              <div className="text-center lg:text-left">
-                <div className="bg-navy rounded-2xl p-8 text-white">
-                  <div className="mb-6">
-                    <div className="text-lg text-gold mb-2">Valor Normal:</div>
-                    <div className="text-2xl line-through text-gray-400 mb-2">R$ 2.997</div>
-                    <div className="text-lg text-gold mb-2">Valor com Bônus:</div>
-                    <div className="text-2xl line-through text-gray-400 mb-4">R$ 6.082</div>
-                    
-                    <div className="border-t border-gold/30 pt-4">
-                      <div className="text-gold text-lg font-semibold mb-2">Seu Investimento Hoje:</div>
-                      <div className="text-5xl md:text-6xl font-bold text-gold mb-2">
-                        12x <span className="text-3xl">de</span>
-                      </div>
-                      <div className="text-6xl md:text-7xl font-bold text-gold mb-2">
-                        R$ 97
-                      </div>
-                      <div className="text-lg text-white/80">
-                        ou R$ 997 à vista
-                      </div>
-                    </div>
-                  </div>
+              <div className="mt-8 bg-navy rounded-2xl p-6 text-white text-center">
+                <div className="mb-4">
+                  <div className="text-lg text-gold mb-2">Valor Normal:</div>
+                  <div className="text-xl line-through text-gray-400 mb-2">R$ 2.997</div>
+                  <div className="text-lg text-gold mb-2">Valor com Bônus:</div>
+                  <div className="text-xl line-through text-gray-400 mb-4">R$ 6.082</div>
                   
-                  <div className="bg-gold/10 rounded-lg p-4 border border-gold/30">
-                    <div className="text-gold font-bold text-lg mb-1">💎 Economia de 84%</div>
-                    <div className="text-white/90 text-sm">
-                      Válido apenas para as primeiras 100 inscrições
+                  <div className="border-t border-gold/30 pt-4">
+                    <div className="text-gold text-lg font-semibold mb-2">Seu Investimento Hoje:</div>
+                    <div className="text-4xl md:text-5xl font-bold text-gold mb-2">
+                      12x <span className="text-2xl">de</span> R$ 97
+                    </div>
+                    <div className="text-lg text-white/80">
+                      ou R$ 997 à vista
                     </div>
                   </div>
                 </div>
+                
+                <div className="bg-gold/10 rounded-lg p-4 border border-gold/30">
+                  <div className="text-gold font-bold text-lg mb-1">💎 Economia de 84%</div>
+                  <div className="text-white/90 text-sm">
+                    Válido apenas para as primeiras 100 inscrições
+                  </div>
+                </div>
               </div>
+            </Card>
+
+            {/* Right Side - Lead Capture Form */}
+            <div>
+              <LeadCaptureForm 
+                variant="hero"
+                title="Inscreva-se Agora!"
+                subtitle="Preencha os dados abaixo para garantir sua vaga com desconto de 84% e todos os bônus exclusivos."
+                buttonText="Quero Dominar o Tráfego Pago Agora!"
+                showBonusOffer={true}
+              />
             </div>
-          </Card>
+          </div>
 
           {/* Guarantees */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
@@ -135,33 +139,8 @@ const FinalCTASection = () => {
             </Card>
           </div>
 
-          {/* Final CTA Buttons */}
-          <div className="text-center">
-            <div className="max-w-2xl mx-auto">
-              <Button 
-                variant="hero" 
-                size="xl" 
-                className="w-full mb-4 text-xl py-6 shadow-luxury transform hover:scale-105"
-              >
-                <Crown className="w-6 h-6" />
-                Quero Dominar o Tráfego Pago Imobiliário Agora!
-                <ArrowRight className="w-6 h-6" />
-              </Button>
-              
-              <p className="text-gold font-semibold mb-6 animate-pulse">
-                🔥 Últimas 47 vagas com desconto de 84% - Oferta expira em 2 dias!
-              </p>
-              
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
-                <p className="text-white/90 text-sm">
-                  🔒 <strong>Pagamento 100% Seguro</strong> • 💳 Cartão, PIX ou Boleto • ⚡ Acesso Liberado em 5 Minutos
-                </p>
-              </div>
-            </div>
-          </div>
-
           {/* Risk Reversal */}
-          <div className="mt-12 text-center">
+          <div className="text-center">
             <div className="bg-gold/10 backdrop-blur-sm rounded-2xl p-8 border border-gold/30 max-w-4xl mx-auto">
               <h3 className="text-2xl font-bold text-white mb-4">
                 🛡️ Zero Risco para Você

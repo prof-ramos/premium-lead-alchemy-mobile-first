@@ -10,6 +10,7 @@ import {
   Timer,
   Flame
 } from "lucide-react";
+import CountdownTimer from "./CountdownTimer";
 
 const UrgencySection = () => {
   const urgencyPoints = [
@@ -59,39 +60,14 @@ const UrgencySection = () => {
           </p>
         </div>
 
-        {/* Countdown Timer (Fake for demo) */}
+        {/* Countdown Timer */}
         <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 mb-12 max-w-4xl mx-auto">
           <div className="text-center mb-6">
             <h3 className="text-2xl font-bold text-white mb-2">Oferta Expira em:</h3>
             <p className="text-gray-300">Após esse prazo, o preço voltará ao valor normal</p>
           </div>
           
-          <div className="grid grid-cols-4 gap-4 max-w-2xl mx-auto">
-            <div className="text-center">
-              <div className="bg-gold rounded-lg p-4 mb-2">
-                <div className="text-2xl md:text-3xl font-bold text-navy">02</div>
-              </div>
-              <div className="text-white font-semibold">Dias</div>
-            </div>
-            <div className="text-center">
-              <div className="bg-gold rounded-lg p-4 mb-2">
-                <div className="text-2xl md:text-3xl font-bold text-navy">14</div>
-              </div>
-              <div className="text-white font-semibold">Horas</div>
-            </div>
-            <div className="text-center">
-              <div className="bg-gold rounded-lg p-4 mb-2">
-                <div className="text-2xl md:text-3xl font-bold text-navy">37</div>
-              </div>
-              <div className="text-white font-semibold">Min</div>
-            </div>
-            <div className="text-center">
-              <div className="bg-gold rounded-lg p-4 mb-2">
-                <div className="text-2xl md:text-3xl font-bold text-navy">22</div>
-              </div>
-              <div className="text-white font-semibold">Seg</div>
-            </div>
-          </div>
+          <CountdownTimer className="max-w-2xl mx-auto" />
         </div>
 
         {/* Urgency Points */}

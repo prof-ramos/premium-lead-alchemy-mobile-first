@@ -8,10 +8,22 @@ import BrandStorySection from "@/components/BrandStorySection";
 import UrgencySection from "@/components/UrgencySection";
 import FinalCTASection from "@/components/FinalCTASection";
 import FAQSection from "@/components/FAQSection";
+import WhatsAppButton from "@/components/WhatsAppButton";
+import LeadMagnetPopup from "@/components/LeadMagnetPopup";
+import TrackingPixels from "@/components/TrackingPixels";
 
 const Index = () => {
   return (
     <main className="min-h-screen">
+      {/* Tracking Pixels */}
+      <TrackingPixels />
+      
+      {/* Lead Magnet Popup */}
+      <LeadMagnetPopup />
+      
+      {/* WhatsApp Floating Button */}
+      <WhatsAppButton variant="fixed" />
+      
       <HeroSection />
       <BenefitsSection />
       <TestimonialsSection />
